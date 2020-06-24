@@ -1,0 +1,137 @@
+{% load static %}
+
+<html>
+<title>D-FM</title>
+<link rel="shortcut icon" href="image/kisspng-lettering-monogram-clip-art-monogram-5aeb1bfda0d635.3024912515253575656588.png">
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+<link rel="stylesheet" href="{% static 'css/w3.css' %}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+
+
+<body>
+
+
+<div class="w3-top">
+    <div class="topnav" id="myTopnav">
+        <a class="currentpage"  href="index.html"><img src="image/kisspng-lettering-monogram-clip-art-monogram-5aeb1bfda0d635.3024912515253575656588.png" style="height: 23px;" alt=""></a>
+        <a href="radyo.html "><i class="fas fa-broadcast-tower"></i> Radyo</a>
+        <a href="spotify.html"><i class="fab fa-spotify"></i> Spotify</a>
+        <a href="hitler.html"><i class="fas fa-fire"></i> Haftanın Hitleri</a>
+        <a href="iletisim.html"><i class="fas fa-envelope-square"></i> İletişim</a>
+        <a  style="float: right;" href="login.html"><i class="fas fa-sign-in-alt"></i> Giriş Yap</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
+      
+      
+      <script>
+      function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+          x.className += " responsive";
+        } else {
+          x.className = "topnav";
+        }
+      }
+      </script>
+</div>
+
+
+<header class="bgimg w3-display-container w3-grayscale-min" id="home">
+  <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
+    <span class="w3-tag">7/24 Canlı Müzik</span>
+  </div>
+  <div class="w3-display-middle w3-center">
+    <span class="w3-text-white" style="font-size:90px">D-FM</span>
+  </div>
+  <div class="w3-display-bottomright w3-center w3-padding-large">
+    <span class="w3-text-white"></span>
+  </div>
+</header>
+
+
+<div class="w3-sand w3-grayscale w3-large">
+
+
+<div class="w3-container" id="about">
+  <div class="w3-content" style="max-width:700px">
+    <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">Radyo Hakkında</span></h5>
+    <p style="text-align: justify;">Radyomuz 2020 yılı mayıs ayında siz değerli dinleyicilerimize yayın yapmaya başlamıştır.Tüm dünyada beğeni kazanmış müzikleri yüksek ses kalitesinde sunmayı ilke edindik.Bu sadelikten sıkıldıysan üst tarafta görebileceğiniz <strong>Radyo</strong> ve <strong>Spotify</strong> butonlarından binlerce şarkı arasından istediğinizi bulabilirsiniz.Spotify'dan radyomuzu takip etmeyi de unutmayın.Bizde her türden müziği bulabilirsiniz</p>
+    <div class="w3-panel w3-leftbar w3-light-grey">
+      <p><i>"Ben en güzel şarkılarımı D-FM i dinlerken yazdım. Gece gündüz sunduğu popüler şarkılar sayesinde radyomdaki favorilerde yerini aldı."</i></p>
+      <p>Şarkıcı,Söz Yazarı: Nicki MINAJ</p>
+    </div>
+    <img src="image/radyo.jpg" style="width:100%;max-width:1000px" class="w3-margin-top">
+    
+  </div>
+</div>
+
+
+<div class="w3-container" id="menu">
+  <div class="w3-content" style="max-width:700px">
+ 
+    <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">Yayın Programı</span></h5>
+  
+    <div class="w3-row w3-center w3-card w3-padding">
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Eat');" id="myLink">
+        <div class="w3-col s6 tablink">Gündüz</div>
+      </a>
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Drinks');">
+        <div class="w3-col s6 tablink">Gece</div>
+      </a>
+    </div>
+
+    <div id="Eat" class="w3-container menu w3-padding-48 w3-card">
+      <div>
+        <h1><a href="/">Django Girls Blog</a></h1>
+    </div>
+    
+    {% for post in posts %}
+        <div>
+            <p>published: {{ post.published_date }}</p>
+            <h1><a href="">{{ post.title }}</a></h1>
+            <p>{{ post.text|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
+    </div>  
+    <img src="image/piyano.jpg" style="width:100%;max-width:1000px;margin-top:32px;">
+  </div>
+</div>
+
+
+
+
+
+</div>
+
+
+<footer class="w3-center w3-light-grey w3-padding-48 w3-large">
+  <a href="http://www.instagram.com"><img src="image/insta.png" width="55px" alt=""></a>
+  <a href="http://www.facebook.com"><img src="image/face.png" width="45px" alt=""></a>
+</footer>
+
+<script>
+
+function openMenu(evt, menuName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("menu");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" w3-dark-grey", "");
+  }
+  document.getElementById(menuName).style.display = "block";
+  evt.currentTarget.firstElementChild.className += " w3-dark-grey";
+}
+document.getElementById("myLink").click();
+</script>
+
+</body>
+</html>
